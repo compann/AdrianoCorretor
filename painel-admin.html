@@ -308,9 +308,9 @@ legend{font-family:var(--rotulo);font-weight:500;text-transform:uppercase;letter
       <fieldset>
         <legend>Valores</legend>
         <div class="linha c3">
-          <div class="campo"><label for="i-preco">Valor (R$) *</label><input id="i-preco" type="number" min="0" step="1"></div>
-          <div class="campo"><label for="i-condominio">Condomínio (R$)</label><input id="i-condominio" type="number" min="0" step="1"></div>
-          <div class="campo"><label for="i-iptu">IPTU (R$)</label><input id="i-iptu" type="number" min="0" step="1"></div>
+          <div class="campo"><label for="i-preco">Valor (R$) *</label><input id="i-preco" type="text" inputmode="numeric" pattern="[0-9.,]*"></div>
+          <div class="campo"><label for="i-condominio">Condomínio (R$)</label><input id="i-condominio" type="text" inputmode="numeric" pattern="[0-9.,]*"></div>
+          <div class="campo"><label for="i-iptu">IPTU (R$)</label><input id="i-iptu" type="text" inputmode="numeric" pattern="[0-9.,]*"></div>
         </div>
       </fieldset>
 
@@ -650,7 +650,12 @@ async function salvar() {
   const titulo = $('#i-titulo').value.trim();
   if (!titulo) { aviso('O imóvel precisa de um título.', true); $('#i-titulo').focus(); return; }
 
-  const num = sel => { const v = $(sel).value; return v === '' ? null : Number(v); };
+  const num = sel => {
+    const v = $(sel).value.trim();
+    if (v === '') return null;
+    const normalizado = v.replace(/\s/g, '').replace(/\./g, '').replace(/,/g, '.');
+    return Number(normalizado);
+  };
   const txt = sel => $(sel).value.trim() || null;
 
   const registro = {
