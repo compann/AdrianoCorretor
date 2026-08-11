@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adriano Miranda · Corretor de Imóveis em Brasília</title>
+<meta name="description" content="Imóveis residenciais e comerciais para compra e locação em Brasília, DF e Entorno. Portfólio verificado, documentação conferida e acompanhamento do primeiro contato à entrega das chaves.">
+<meta name="theme-color" content="#0A0B0C">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adriano Miranda · Corretor de Imóveis">
+<meta property="og:description" content="Imóveis selecionados em Brasília, DF e Entorno.">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jura:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0B0C'/%3E%3Cpath d='M28 84V25L50 12l22 13v59' fill='none' stroke='%23F2F1EE' stroke-width='4'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- símbolo reaproveitado como sprite: o mesmo portal do manual de marca -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="portal" viewBox="0 0 74 100">
+    <path d="M8 96 V25.5 L37 4 L66 25.5 V96" fill="none" stroke="currentColor" stroke-width="3.2"/>
+    <path d="M14.5 96 V29.3 L37 12.5 L59.5 29.3 V96" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+  </symbol>
+</svg>
+
+<header class="topo" id="topo">
+  <a class="marca" href="#capa" aria-label="Adriano Miranda, corretor de imóveis">
+    <svg viewBox="0 0 74 100" aria-hidden="true"><use href="#portal"></use></svg>
+    <span class="nome" data-perfil="nome">Adriano Miranda</span>
+  </a>
+  <nav class="menu" id="menu">
+    <a href="#catalogo">Imóveis</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <a href="#" id="link-zap-topo" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+  <button class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- ── Capa ───────────────────────────────────────────────────────── -->
+<section class="capa" id="capa">
+  <svg class="capa-portal" viewBox="0 0 74 100" aria-hidden="true"><use href="#portal"></use></svg>
+  <div class="env">
+    <p class="rotulo" data-perfil="cidade_atuacao">Brasília · DF e Entorno</p>
+    <h1 data-perfil="chamada">O endereço certo não se anuncia. Se apresenta.</h1>
+    <p class="sub">Um portfólio enxuto de imóveis para compra e locação — cada um visitado,
+      conferido e apresentado pessoalmente.</p>
+    <div class="acoes">
+      <a class="btn btn-cheio" href="#catalogo">Ver imóveis</a>
+      <a class="btn" href="#" id="link-zap-capa" target="_blank" rel="noopener">Falar comigo</a>
+    </div>
+  </div>
+  <div class="desca" aria-hidden="true">
+    <span class="rotulo">Role</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ── Catálogo ───────────────────────────────────────────────────── -->
+<div class="zona-catalogo">
+<div class="filtros" id="catalogo">
+  <div class="env">
+    <div class="filtros-grade">
+      <div class="alternador" role="group" aria-label="Finalidade">
+        <button type="button" data-finalidade="" aria-pressed="true">Tudo</button>
+        <button type="button" data-finalidade="venda" aria-pressed="false">Comprar</button>
+        <button type="button" data-finalidade="aluguel" aria-pressed="false">Alugar</button>
+      </div>
+
+      <button class="btn-filtros" id="btn-filtros" type="button" aria-expanded="false"
+              aria-controls="catalogo">Mais filtros</button>
+
+      <div class="campo">
+        <label for="f-tipo">Tipo</label>
+        <select id="f-tipo">
+          <option value="">Todos</option>
+          <option value="apartamento">Apartamento</option>
+          <option value="casa">Casa</option>
+          <option value="casa_condominio">Casa em condomínio</option>
+          <option value="terreno">Terreno / lote</option>
+          <option value="comercial">Sala comercial</option>
+          <option value="galpao">Galpão</option>
+          <option value="rural">Rural</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="f-bairro">Bairro ou cidade</label>
+        <input id="f-bairro" type="search" placeholder="Ex.: Sudoeste" autocomplete="off">
+      </div>
+
+      <div class="campo">
+        <label for="f-quartos">Quartos</label>
+        <select id="f-quartos">
+          <option value="">Indiferente</option>
+          <option value="1">1 ou mais</option>
+          <option value="2">2 ou mais</option>
+          <option value="3">3 ou mais</option>
+          <option value="4">4 ou mais</option>
+        </select>
+      </div>
+
+      <button class="limpar" id="f-limpar" type="button">Limpar filtros</button>
+    </div>
+  </div>
+</div>
+
+<section class="secao" aria-labelledby="tit-catalogo">
+  <div class="env">
+    <div class="secao-cabeca">
+      <div class="filete"></div>
+      <h2 id="tit-catalogo">Imóveis disponíveis</h2>
+      <p>Clique em qualquer imóvel para ver a ficha completa, as fotos e falar comigo sobre ele.</p>
+    </div>
+    <p class="contagem" id="contagem" aria-live="polite">Carregando o catálogo…</p>
+    <div class="grade" id="grade"></div>
+  </div>
+</section>
+</div>
+
+<!-- ── Sobre ──────────────────────────────────────────────────────── -->
+<section class="secao sobre" id="sobre">
+  <div class="env sobre-grade">
+    <div class="sobre-foto">
+      <img id="foto-corretor" src="images/Adriano.jpg" alt="Retrato de Adriano Miranda">
+      <div class="vazio" id="foto-corretor-vazio" hidden>Foto do corretor<br>(defina no painel)</div>
+    </div>
+    <div>
+      <div class="secao-cabeca">
+        <div class="filete"></div>
+        <h2>Quem apresenta o imóvel</h2>
+      </div>
+      <p data-perfil="bio"></p>
+      <dl class="credenciais">
+        <div>
+          <dt>Registro profissional</dt>
+          <dd data-perfil="creci">CRECI-GO 00000</dd>
+        </div>
+        <div>
+          <dt>Região de atuação</dt>
+          <dd data-perfil="cidade_atuacao">Brasília · DF e Entorno</dd>
+        </div>
+        <div>
+          <dt>Atendimento</dt>
+          <dd>Compra · Venda · Locação</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contato ────────────────────────────────────────────────────── -->
+<section class="secao" id="contato">
+  <div class="env contato-grade">
+    <div>
+      <div class="secao-cabeca">
+        <div class="filete"></div>
+        <h2>Vamos conversar</h2>
+        <p>Me diga o que você procura — bairro, faixa de valor, prazo. Respondo com as
+          opções que realmente se encaixam, não com uma lista inteira.</p>
+      </div>
+      <div class="canais">
+        <a class="canal" id="canal-zap" href="#" target="_blank" rel="noopener">
+          <span class="rotulo">WhatsApp</span>
+          <span class="valor" data-perfil="telefone">(61) 9 0000-0000</span>
+        </a>
+        <a class="canal" id="canal-email" href="#">
+          <span class="rotulo">E-mail</span>
+          <span class="valor" data-perfil="email">contato@adrianomiranda.com.br</span>
+        </a>
+        <a class="canal" id="canal-instagram" href="#" target="_blank" rel="noopener">
+          <span class="rotulo">Instagram</span>
+          <span class="valor" data-perfil="instagram_arroba">@adrianomiranda.corretor</span>
+        </a>
+        <div class="canal">
+          <span class="rotulo">Registro</span>
+          <span class="valor" data-perfil="creci">CRECI-GO 00000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="env rodape-grade">
+    <a class="marca" href="#capa">
+      <svg viewBox="0 0 74 100" aria-hidden="true"><use href="#portal"></use></svg>
+      <span class="nome" data-perfil="nome">Adriano Miranda</span>
+    </a>
+    <p class="fino">
+      Corretor de imóveis · <span data-perfil="creci">CRECI-GO 00000</span><br>
+      <span data-perfil="cidade_atuacao">Brasília · DF e Entorno</span>
+    </p>
+    <p class="fino" id="ano">© 2026</p>
+  </div>
+</footer>
+
+<a class="zap" id="zap" href="#" target="_blank" rel="noopener">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.25-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98s.74-2.11 1-2.4c.26-.29.57-.36.76-.36l.55.01c.17 0 .41-.7.63.48.24.58.8 2 .87 2.14.7.15.12.32.02.51-.1.19-.14.31-.29.48l-.43.5c-.14.14-.29.3-.12.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.28 2.3 1.42.29.15.46.12.63-.7.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.26.9 1.67.79 1.96.93.29.15.48.22.55.34.07.12.07.7-.17 1.38Z"/>
+  </svg>
+  Falar no WhatsApp
+</a>
+
+<!-- ── Ficha do imóvel ────────────────────────────────────────────── -->
+<div class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-titulo">
+  <div class="ficha-fundo" data-fechar></div>
+  <div class="ficha-corpo" id="ficha-corpo"></div>
+</div>
+
+<script src="config.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
