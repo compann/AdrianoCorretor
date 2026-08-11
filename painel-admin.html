@@ -468,7 +468,13 @@ async function carregarImoveis() {
   const { data, error } = await sb.from('imoveis').select('*')
     .order('destaque', { ascending:false })
     .order('criado_em', { ascending:false });
-  if (error) return aviso('Não consegui carregar os imóveis.', true);
+  if (error) {
+    const msg = String(error.message || error.details || error);
+    if (msg.includes("Could not find the table 'public.imoveis'")) {
+      return aviso('Tabela imoveis não encontrada no Supabase. Rode supabase/schema.sql no SQL Editor do seu projeto.', true);
+    }
+    return aviso(`Não consegui carregar os imóveis. ${msg}`, true);
+  }
   imoveis = data || [];
   renderLista();
 }
@@ -675,7 +681,10 @@ async function salvar() {
   $('#salvar').disabled = $('#salvar-2').disabled = false;
 
   if (resposta.error) {
-    const detalhe = resposta.error.message || resposta.error.details || JSON.stringify(resposta.error);
+    let detalhe = resposta.error.message || resposta.error.details || JSON.stringify(resposta.error);
+    if (String(detalhe).includes("Could not find the table 'public.imoveis'")) {
+      detalhe = 'Tabela imoveis não encontrada no Supabase. Rode supabase/schema.sql no SQL Editor do seu projeto.';
+    }
     aviso(`Não consegui salvar. ${detalhe}`, true);
     console.error(resposta.error);
     return;

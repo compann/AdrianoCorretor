@@ -35,6 +35,8 @@ adriano-miranda-site/
 2. Abra `supabase/schema.sql`, copie o arquivo inteiro, cole e clique em **Run**.
 3. Isso cria as tabelas `imoveis`, `perfil` e `contatos`, as regras de segurança (RLS)
    e o bucket de fotos. Pode rodar de novo sem quebrar nada.
+4. Se o painel mostrar erro sobre a tabela `public.imoveis`, confirme que o SQL rodou
+   no projeto Supabase correto e recarregue o painel.
 
 ### 3. Criar o usuário do painel
 
