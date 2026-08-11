@@ -674,7 +674,12 @@ async function salvar() {
     : await sb.from('imoveis').insert(registro);
   $('#salvar').disabled = $('#salvar-2').disabled = false;
 
-  if (resposta.error) { aviso('Não consegui salvar. Confira os campos.', true); console.error(resposta.error); return; }
+  if (resposta.error) {
+    const detalhe = resposta.error.message || resposta.error.details || JSON.stringify(resposta.error);
+    aviso(`Não consegui salvar. ${detalhe}`, true);
+    console.error(resposta.error);
+    return;
+  }
   aviso(editando ? 'Imóvel atualizado' : 'Imóvel publicado');
   fecharEditor();
   carregarImoveis();
